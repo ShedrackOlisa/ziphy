@@ -136,7 +136,7 @@ body {
     font:14px/1.5 Times New Roman, Times, serif; /* Impact, fantasy *//* Arial, sans-serif */;
     background-color:/* #E0E0E0 */ #fff; /* Default white background */
     color: #333; /* Default text color */
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 body.dark-mode {
@@ -319,7 +319,7 @@ h1{
     
 }    
 #vm button{
-    background:#ff95e7 ;
+    background:#ff8800 ;
     width: 100px;
     height: 30px;
     color: #fff;
@@ -497,7 +497,7 @@ h1{
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #e8491d;
+            background: #ff8800;
             color: #fff;
             width: 310px;
             border-radius: 12px;
@@ -554,6 +554,58 @@ h1{
 }
 
 
+ul li{
+    padding:5px;
+}
+
+ol li{
+    padding:5px;
+}
 
 
 
+
+
+
+
+
+.zenu {
+            text-align: center; /* Center the content */
+            margin: 0 auto; /* Ensure content is centered horizontally */
+            max-width: 1200px; /* Set a maximum width for the content */
+            padding: ; /* Optional: Add padding around the content */
+            background:#fff;
+           
+        }
+
+        .zenu table {
+            width: 100%; /* Make the table fill the available width */
+            border-collapse: collapse;
+            margin-top: 20px; /* Optional: Add some top margin */
+            margin: 0 auto;
+        }
+
+        .zenu table td {
+            border: 3px solid #E0E0E0 /* #ccc */; /* Optional: Add a border for table cells */
+            padding: /* 10px */;
+            text-align: center; /* Center the content in each cell */
+        }
+
+        .zenu table img {
+            width: 160px; /* Set a specific width for the images */
+            height: 100px; /* Set a specific height for the images */
+            object-fit: /* cover */; /* Maintain image aspect ratio and cover the defined space */
+            display: block; /* Remove extra space below image */
+            margin: 0 auto; /* Center the image within its container */
+        }
+.zenu a{
+    color: blue ;
+}
+
+   .zenu table a{
+   color: black;
+   font-weight:bold;
+   }
+.zenu table a:hover{
+    color: blue;
+}
