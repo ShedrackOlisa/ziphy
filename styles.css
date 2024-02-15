@@ -133,7 +133,7 @@ body {
     transition: background-color 0.5s ease;
     margin: 0;
     
-    font:14px/1.5 Times New Roman, Times, serif; /* Impact, fantasy *//* Arial, sans-serif */;
+    font:13px/1.5 Times New Roman, Times, serif; /* Impact, fantasy *//* Arial, sans-serif */;
     background-color:/* #E0E0E0 */ #fff; /* Default white background */
     color: #333; /* Default text color */
     /* font-weight: bold; */
@@ -355,13 +355,23 @@ h1{
    } 
 
 
-#dot-h{
+/* #dot-h{
     background-color: #fff;
     
 }
 #dot-h a{
     color: blue;
+} */
+
+
+#dot-g{
+    background-color: #fff;
+    
 }
+#dot-g a{
+    color: blue;
+}
+
 
 #invisible{
     color: #000000e9 /* #ff95e7 */ ;
@@ -435,7 +445,7 @@ h1{
     float: right;
     top:18px;
     position: absolute;
-    right:-5px;
+    right:-0px;
   }
   
   /* Styles for search container */
@@ -535,6 +545,57 @@ h1{
               color: #E0E0E0;
               
           }
+          
+   
+   
+ .centered-button2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .centered-button2 button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: green;
+            color: #fff;
+            width: 300px;
+            border-radius: 12px;
+            text-align: center;
+            height: 50px;
+            font-size: 15px;
+            font-weight: bold;
+            border: none; /* Remove border */
+        }
+
+        .centered-button2 button img {
+            width: 35px;
+            height: auto;
+            margin-right: 5px; /* Adjust spacing between image and text */
+        }
+
+        .centered-button2 button span {
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .centered-button2 button a {
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block; /* Ensure the link is centered */
+        }
+        
+        
+           
+          
+          
+          
+          
+          
 
 #rq h3{
     text-align: center;
@@ -608,4 +669,16 @@ ol li{
    }
 .zenu table a:hover{
     color: blue;
+}
+
+
+.app{
+    text-align: center;
+    font-size:15px;
+    font-weight:bold;
+}
+
+
+.h3-ct h3{
+    text-align: center;
 }
