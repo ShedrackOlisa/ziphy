@@ -39,9 +39,7 @@ section a{
     margin-top:-75px;
 }              
 
-.second-bg { background-image: url('logo2.jpg'); /* Replace 'logo.jpg' with the path to your image */ background-size: cover; background-position: center; background-repeat: no-repeat; height: 230px; width: auto;/* Set the height of your header */ /* You can add more styles as needed */ } 
 
-.work { padding: 20px; color: black; padding-top:-200px; font-size:18px;/* Text color for better contrast */ }
           
 footer{
     background: #000000e9/* #000000d8 */ /* #ff95e7 */;
@@ -154,6 +152,7 @@ body.dark-mode {
     align-items: center;
     padding: 10px;  
     background:#ff8800 /* #ff95e7 */;  
+    border-bottom: black 3px solid;
 }
 
 .switch {
