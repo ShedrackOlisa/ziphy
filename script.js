@@ -85,3 +85,88 @@ function displaySearchResults(results) {
     searchResultsDiv.appendChild(resultDiv);
   });
 }
+
+
+
+
+
+
+var imageUrls = [
+            'https://ziphy.com.ng/images/img1.jpg',
+            'https://ziphy.com.ng/images/img2.jpg',
+            'https://ziphy.com.ng/images/img3.jpg',
+            'https://ziphy.com.ng/images/img4.jpg',
+            'https://ziphy.com.ng/images/img5.jpg',
+            'https://ziphy.com.ng/images/img6.jpg',
+            'https://ziphy.com.ng/images/img7.jpg',
+            'https://ziphy.com.ng/images/img8.jpg',
+            'https://ziphy.com.ng/images/img9.jpg',
+            'https://ziphy.com.ng/images/img10.jpg',
+            'https://ziphy.com.ng/images/img11.jpg',
+            'https://ziphy.com.ng/images/img12.jpg',
+            'https://ziphy.com.ng/images/img13.jpg',
+            'https://ziphy.com.ng/images/img14.jpg',
+            'https://ziphy.com.ng/images/img15.jpg',
+            'https://ziphy.com.ng/images/img16.jpg',
+            'https://ziphy.com.ng/images/img17.jpg',
+            'https://ziphy.com.ng/images/img18.jpg',
+            // Add more image URLs here as needed
+        ];
+
+        var currentIndex = -1;
+        var previousIndex = -1;
+
+        function getRandomIndex() {
+            var index = Math.floor(Math.random() * imageUrls.length);
+            while (index === currentIndex || index === previousIndex) {
+                index = Math.floor(Math.random() * imageUrls.length);
+            }
+            return index;
+        }
+
+        function rotateAd() {
+            previousIndex = currentIndex;
+            currentIndex = getRandomIndex();
+
+            var adContainer = document.getElementById('adContainer');
+            adContainer.innerHTML = ''; // Clear previous content
+
+            // Create ad-content div
+            var adContentDiv = document.createElement('div');
+            adContentDiv.classList.add('ad-content');
+
+            // Create ad image with link
+            var adImage = document.createElement('a');
+            adImage.href = 'https://www.profitablegatecpm.com/mcawprf3f?key=91b49c95df49e8ac63161b6154149b24'; // URL to navigate
+            adImage.target = '_blank'; // Open link in new tab
+            adImage.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevent adContainer click when image clicked
+            });
+            var imgElement = document.createElement('img');
+            imgElement.src = imageUrls[currentIndex];
+            imgElement.alt = 'Advertisement';
+            adImage.appendChild(imgElement);
+
+            // Append ad image to ad-content div
+            adContentDiv.appendChild(adImage);
+
+            // Create close button
+            var closeButton = document.createElement('button');
+            closeButton.classList.add('close-button');
+            closeButton.textContent = '✕';
+            closeButton.onclick = function() {
+                adContainer.style.display = 'none'; // Hide the ad container
+            };
+
+            // Append close button to ad-container div
+            adContainer.appendChild(adContentDiv);
+            adContainer.appendChild(closeButton);
+        }
+
+        function startRotation() {
+            rotateAd(); // Initial display
+            setInterval(rotateAd, 10000); // Rotate every 10 seconds
+        }
+
+        // Start rotating ads
+        startRotation();
