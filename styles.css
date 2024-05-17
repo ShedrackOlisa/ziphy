@@ -740,3 +740,16 @@ ol li{
 .dynamic-button:active {
     transform: scale(0.9); /* Shrink when clicked */
 }
+
+   /* Use media queries to set specific styles for desktop */
+@media only screen and (min-width: 1024px) {
+   
+   section{
+    width: 65%;
+    margin:auto;
+    overflow: hidden;
+    }
+ 
+
+    
+}      
