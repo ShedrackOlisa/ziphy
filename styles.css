@@ -742,7 +742,7 @@ ol li{
 }
 
    /* Use media queries to set specific styles for desktop */
-@media only screen and (min-width: 1024px) {
+/* @media only screen and (min-width: 1024px) {
    
    section{
     width: 65%;
@@ -752,4 +752,49 @@ ol li{
  
 
     
-}      
+} */  
+
+
+
+/* Use media queries to set specific styles for desktop */
+@media only screen and (min-width: 1024px) {
+    .left-half-section {
+        width: 60%; /* Set width to 50% of the screen */
+        float: left; /* Float left to position on the left side */
+        
+        padding: 15px;
+        
+         border-left:1px solid #E0E0E0;
+         border-right:1px solid #E0E0E0;
+         
+         
+    }
+    
+    
+    
+    .right-half-section {
+        width: 60%; /* Set width to 50% of the screen */
+        float: left; /* Float left to position on the left side */
+        
+        /* padding: 15px; */
+        
+         border:1px solid #E0E0E0;
+         
+    }
+    
+     .right-half-section tr h3{
+     float:left;
+ }    
+ 
+.ads-half-section{
+    width: 60%; /* Set width to 50% of the screen */
+        float: left; /* Float left to position on the left side */
+        
+        padding: 15px;
+        
+         border-left:1px solid #E0E0E0;
+         border-right:1px solid #E0E0E0;
+}
+    
+}
+
