@@ -772,7 +772,7 @@ ol li{
     
     
     
-    .right-half-section {
+    #right-half-section {
         width: 60%; /* Set width to 50% of the screen */
         float: left; /* Float left to position on the left side */
         
@@ -782,7 +782,7 @@ ol li{
          
     }
     
-     .right-half-section tr h3{
+     #right-half-section tr h3{
      float:left;
  }    
  
