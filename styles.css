@@ -741,6 +741,28 @@ ol li{
     transform: scale(0.9); /* Shrink when clicked */
 }
 
+
+
+#logo-ct{
+    text-align: center;
+}
+
+#logo-ct img{
+    width: 70px;
+}
+#logo-ct a{
+    text-decoration:none;
+    font-size:18px;
+    color: blue ;
+}
+
+#logo-ct a:hover{
+    color: #ff1593;
+    font-weight: bolder;
+}
+
+
+
    /* Use media queries to set specific styles for desktop */
 /* @media only screen and (min-width: 1024px) {
    
@@ -772,7 +794,7 @@ ol li{
     
     
     
-    #right-half-section {
+    .right-half-section {
         width: 60%; /* Set width to 50% of the screen */
         float: left; /* Float left to position on the left side */
         
@@ -782,7 +804,7 @@ ol li{
          
     }
     
-     #right-half-section tr h3{
+     .right-half-section tr h3{
      float:left;
  }    
  
