@@ -696,7 +696,7 @@ ol li{
 .row {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 2px;
 }
 
 .dynamic-button {
