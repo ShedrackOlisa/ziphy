@@ -1,87 +1,111 @@
-document.getElementById('darkModeToggle').addEventListener('change', function () {
-    document.body.classList.toggle('dark-mode', this.checked);
-});
-
-
-function toggleMenu() {
-    var menu = document.querySelector('.menu');
-    var menuToggle = document.querySelector('.menu-toggle');
-
-    if (menu.style.display === 'none' || menu.style.display === '') {
-        menu.style.display = 'flex';
-        menuToggle.classList.add('open');
-    } else {
-        menu.style.display = 'none';
-        menuToggle.classList.remove('open');
-    }
-}
-
-
-window.onload = function() { var yearElement = document.getElementById("currentYear"); var currentYear = new Date().getFullYear(); yearElement.textContent = currentYear; };
-
-
-
- 
- 
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu');
+    const navbar = document.querySelector('.navbar');
     
-// Get elements
-var searchButton = document.getElementById("searchButton");
-var searchContainer = document.getElementById("searchContainer");
-
-// Add click event listener to search button
-searchButton.addEventListener("click", function() {
-  // Toggle search icon to close icon
-  var searchIcon = searchButton.querySelector("i");
-  searchIcon.classList.toggle("fa-search");
-  searchIcon.classList.toggle("fa-times");
-
-  // Show search container
-  searchContainer.style.display = "block";
-});
-
-// Function to close search container
-function closeSearch() {
-  // Toggle search icon to search icon
-  var searchIcon = searchButton.querySelector("i");
-  searchIcon.classList.toggle("fa-times");
-  searchIcon.classList.toggle("fa-search");
-
-  // Hide search container
-  searchContainer.style.display = "none";
-}
-
-function search() {
-  var query = document.getElementById("searchInput").value.toLowerCase();
-  var searchData = [
-    { title: "Sample Article 1", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", image: "https://via.placeholder.com/150", url: "https://example.com/article1" },
-    { title: "Sample Article 2", content: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: "https://via.placeholder.com/150", url: "https://example.com/article2" },
-    { title: "Sample Article 3", content: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", image: "https://via.placeholder.com/150", url: "https://example.com/article3" }
-  ];
-
-  var searchResults = searchData.filter(function(item) {
-    return item.title.toLowerCase().includes(query) || item.content.toLowerCase().includes(query);
-  });
-
-  displaySearchResults(searchResults);
-}
-
-function displaySearchResults(results) {
-  var searchResultsDiv = document.getElementById("searchResults");
-  searchResultsDiv.innerHTML = ""; // Clear previous results
-
-  if (results.length === 0) {
-    searchResultsDiv.innerHTML = "<p>No results found.</p>";
-    return;
-  }
-
-  results.forEach(function(result) {
-    var resultDiv = document.createElement("div");
-    resultDiv.classList.add("result");
-    resultDiv.innerHTML = "<h3>" + result.title + "</h3><img src='" + result.image + "' alt='" + result.title + "'><p>" + result.content + "</p>";
-    // Add click event listener to navigate to URL
-    resultDiv.addEventListener("click", function() {
-      window.location.href = result.url;
+    mobileMenuBtn.addEventListener('click', function() {
+        navbar.classList.toggle('active');
+        this.querySelector('i').classList.toggle('fa-times');
     });
-    searchResultsDiv.appendChild(resultDiv);
-  });
-}
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.navbar ul li a').forEach(link => {
+        link.addEventListener('click', function() {
+            navbar.classList.remove('active');
+            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+        });
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    
+    // Games filter
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const gameCards = document.querySelectorAll('.game-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            gameCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Load more games
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    let currentItems = 8;
+    
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            const games = document.querySelectorAll('.games-grid .game-card');
+            
+            for (let i = currentItems; i < currentItems + 4; i++) {
+                if (games[i]) {
+                    games[i].style.display = 'block';
+                }
+            }
+            
+            currentItems += 4;
+            
+            if (currentItems >= games.length) {
+                loadMoreBtn.style.display = 'none';
+            }
+        });
+    }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            
+            if (emailInput.value.trim() === '') {
+                alert('Please enter your email address');
+                return;
+            }
+            
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // In a real app, you would send this to your backend
+            alert('Thank you for subscribing! You will now receive updates about new mods.');
+            emailInput.value = '';
+        });
+    }
+});
